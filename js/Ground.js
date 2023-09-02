@@ -32,7 +32,7 @@ class Ground {
       this.groundSecondResult.x + this.offsetX + this.groundFirstResult.width, this.groundSecondResult.y, this.groundSecondResult.width, this.groundSecondResult.height
     );
 
-    requestAnimationFrame(this.render.bind(this));
+    //requestAnimationFrame(this.render.bind(this));
   }
 }
 

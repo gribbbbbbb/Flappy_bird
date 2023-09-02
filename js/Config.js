@@ -1,12 +1,4 @@
 class Config {
-  //bird
-  birdAnimation = []
-  birdSize = 0
-  birdFrame = 0
-  birdX = 0
-  birdY = 0
-
-
   //bg
   bgSource = {
     x: 0,
@@ -39,6 +31,20 @@ class Config {
     y: 605,
     width: canvas.width,
     height: 200,
+  }
+
+  //bird
+  birdFrames = [
+    {sX: 528, sY: 128},
+    {sX: 528, sY: 180},
+    {sX: 580, sY: 322}
+  ]
+  birdSize = [34, 24]
+  birdResult = {
+    x: 175,
+    y: 350,
+    width: 51,
+    height: 36,
   }
 }
 

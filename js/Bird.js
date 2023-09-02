@@ -1,40 +1,29 @@
 class Bird {
-  constructor(canvas, context, imgURL) {
-    this.canvas = canvas
-    this.context = context
-    this.imgURL = imgURL
-    this.birdImage = new Image();
-    this.birdImage.src = imgURL;
-
-    this.animation = [
-      { sX: 432, sY: 0 },
-      { sX: 432, sY: 37 },
-      { sX: 276, sY: 164 }
-    ];
-    this.size = [52, 36]
-    this.x = 215
-    this.y = 384;
-    this.radius = 12;
-    
-    // константы для осуществения анимации
-    this.frame = 0;
-    this.direction = 1;
-    this.rotation = 0;
+  constructor(canvas, context, gameSprites, birdFrames, birdSize, birdResult) {
+    this.canvas = canvas;
+    this.context = context;
+    this.gameSprites = gameSprites;
+    this.birdFrames = birdFrames;
+    this.birdSize = birdSize;
+    this.frameIndex = 0;
+    this.birdResult = birdResult
   }
 
   render() {
-    const bird = this.animation[this.frame];
-
-    //this.context.save();
-    
-    this.context.translate(this.x, this.y);
-    //this.context.rotate(this.rotation);
-    this.context.drawImage(this.birdImage,
-      bird.sX, bird.sY, this.size[0], this.size[1],
-      -this.size[0] / 2, -this.size[1] / 2, this.size[0], this.size[1]
+    debugger
+    const currentFrame = this.birdFrames[this.frameIndex];
+    this.context.drawImage(
+      this.gameSprites,
+      currentFrame.sX, currentFrame.sY, this.birdSize[0], this.birdSize[1],
+      this.birdResult.x, this.birdResult.y, this.birdResult.width, this.birdResult.height
     );
+  }
 
-    //this.context.restore();
+  update() {
+    this.frameIndex++;
+    if (this.frameIndex >= this.birdFrames.length) {
+      this.frameIndex = 0;
+    }
   }
 }
 export { Bird };
